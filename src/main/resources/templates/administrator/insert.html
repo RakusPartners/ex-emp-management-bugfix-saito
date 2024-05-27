@@ -81,6 +81,7 @@
                   <div class="row">
                     <div class="col-sm-12">
                       <label for="mailAddress"> メールアドレス: </label>
+                      <label class="error-messages" th:text="${registerErrorMessage}"></label>
                       <label
                         th:errors="*{mailAddress}"
                         class="error-messages"
