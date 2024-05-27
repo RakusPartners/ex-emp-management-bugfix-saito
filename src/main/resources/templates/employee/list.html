@@ -97,7 +97,14 @@
           <!-- ここから上を編集する必要はありません -->
 
           <!-- ここにモックのtable要素を貼り付けます -->
-
+          <div>
+            <form th:action="@{/employee/showListByName}">
+              <label for="name">名前検索：<input type="text" name="name" id="name"></label>
+              <button>検索</button>
+            </form>
+            <br>
+            <p class="error-messages" th:text="${resultMessage}"></p>
+          </div>
           <table class="table table-striped">
             <thead>
               <tr>
