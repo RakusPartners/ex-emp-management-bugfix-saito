@@ -15,7 +15,7 @@ public class InsertAdministratorForm {
 	private String name;
 	/** メールアドレス */
 	@NotBlank(message =  "メールアドレスを入力してください")
-	@Email
+	@Email(message = "メールアドレスの形式ではありません")
 	private String mailAddress;
 	/** パスワード */
 	@NotBlank(message = "パスワードを入力してください")
