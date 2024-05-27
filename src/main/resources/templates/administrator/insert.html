@@ -106,6 +106,7 @@
                   <div class="row">
                     <div class="col-sm-12">
                       <label for="password"> パスワード: </label>
+                      <label th:text="${passwordNotEqualError}" class="error-messages"></label>
                       <label
                         th:errors="*{password}"
                         class="error-messages"
@@ -119,6 +120,30 @@
                         class="form-control"
                         placeholder="password"
                         th:field="*{password}"
+                        th:errorclass="error-input"
+                        value="xxxxxxxx"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- パスワード確認用 -->
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <label for="passwordConfirm"> パスワード(確認用): </label>
+                      <label
+                        th:errors="*{passwordConfirm}"
+                        class="error-messages"
+                      >
+                        パスワードを入力してください
+                      </label>
+                      <input
+                        type="password"
+                        name="passwordConfirm"
+                        id="passwordConfirm"
+                        class="form-control"
+                        placeholder="password"
+                        th:field="*{passwordConfirm}"
                         th:errorclass="error-input"
                         value="xxxxxxxx"
                       />

@@ -2,6 +2,7 @@ package com.example.controller;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -82,6 +83,12 @@ public class AdministratorController {
 
 		Administrator administrator = new Administrator();
 		// フォームからドメインにプロパティ値をコピー
+
+		if(form.getPassword()!=form.getPasswordConfirm()){
+			model.addAttribute("passwordNotEqualError", "確認用パスワードと一致していません。");
+			return toInsert(model);
+		}
+
 		BeanUtils.copyProperties(form, administrator);
 		if(administratorService.administratorIsExist(administrator)){
 			model.addAttribute("registerErrorMessage", "E-mailアドレスが重複しています");
