@@ -11,14 +11,14 @@ import jakarta.validation.constraints.NotBlank;
  */
 public class InsertAdministratorForm {
 	/** 名前 */
-	@NotBlank
+	@NotBlank(message = "名前を入力してください")
 	private String name;
 	/** メールアドレス */
-	@NotBlank
+	@NotBlank(message =  "メールアドレスを入力してください")
 	@Email
 	private String mailAddress;
 	/** パスワード */
-	@NotBlank
+	@NotBlank(message = "パスワードを入力してください")
 	private String password;
 
 	public String getName() {
