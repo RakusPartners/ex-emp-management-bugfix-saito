@@ -55,6 +55,22 @@ public class EmployeeController {
 		return "employee/list";
 	}
 
+	@GetMapping("/showListByName")
+	public String showListByName(String name, Model model){
+		
+		List<Employee> employeeList = employeeService.findByName(name);
+		if(name.isBlank() || name.isEmpty()){
+			return showList(model);
+		} else if(employeeList.isEmpty()){
+			model.addAttribute("resultMessage", "1件もありませんでした。");
+			return showList(model);
+		} else {
+			model.addAttribute("employeeList", employeeList);
+			return "employee/list";
+		}
+		
+	}
+
 	/////////////////////////////////////////////////////
 	// ユースケース：従業員詳細を表示する
 	/////////////////////////////////////////////////////
