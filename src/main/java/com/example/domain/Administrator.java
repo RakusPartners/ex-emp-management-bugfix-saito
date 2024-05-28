@@ -1,13 +1,19 @@
 package com.example.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 /**
  * 管理者情報を表すドメイン.
  * 
  * @author igamasayuki
  * 
  */
+
+@Entity
 public class Administrator {
 	/** id(主キー) */
+	@Id
 	private Integer id;
 	/** 名前 */
 	private String name;

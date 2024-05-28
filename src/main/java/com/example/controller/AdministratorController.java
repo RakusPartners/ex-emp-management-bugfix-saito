@@ -2,7 +2,6 @@ package com.example.controller;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -84,7 +83,7 @@ public class AdministratorController {
 		Administrator administrator = new Administrator();
 		// フォームからドメインにプロパティ値をコピー
 
-		if(form.getPassword()!=form.getPasswordConfirm()){
+		if(!form.getPassword().equals(form.getPasswordConfirm())){
 			model.addAttribute("passwordNotEqualError", "確認用パスワードと一致していません。");
 			return toInsert(model);
 		}
@@ -119,7 +118,7 @@ public class AdministratorController {
 	 * @param form 管理者情報用フォーム
 	 * @return ログイン後の従業員一覧画面
 	 */
-	@PostMapping("/login")
+	// @PostMapping("/login")
 	public String login(LoginForm form, RedirectAttributes redirectAttributes) {
 		Administrator administrator = administratorService.login(form.getMailAddress(), form.getPassword());
 		if (administrator == null) {
