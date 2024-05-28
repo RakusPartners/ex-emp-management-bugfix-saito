@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,14 @@ public class EmployeeController {
 	public String showList(Model model) {
 		List<Employee> employeeList = employeeService.showList();
 		model.addAttribute("employeeList", employeeList);
+		List<String> nameList = new ArrayList<>();
+
+		for(Employee employee: employeeList){
+			nameList.add(employee.getName());
+		}
+
+		model.addAttribute("nameList", nameList);
+
 		return "employee/list";
 	}
 
