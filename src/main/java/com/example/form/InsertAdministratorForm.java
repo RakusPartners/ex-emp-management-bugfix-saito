@@ -20,6 +20,8 @@ public class InsertAdministratorForm {
 	/** パスワード */
 	@NotBlank(message = "パスワードを入力してください")
 	private String password;
+	/** パスワード確認用 */
+	private String passwordConfirm;
 
 	public String getName() {
 		return name;
@@ -49,6 +51,14 @@ public class InsertAdministratorForm {
 	public String toString() {
 		return "InsertAdministratorForm [name=" + name + ", mailAddress=" + mailAddress + ", password=" + password
 				+ "]";
+	}
+
+	public String getPasswordConfirm() {
+		return passwordConfirm;
+	}
+
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = passwordConfirm;
 	}
 
 }

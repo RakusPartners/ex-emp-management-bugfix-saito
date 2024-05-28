@@ -30,6 +30,19 @@ public class AdministratorService {
 	}
 
 	/**
+	 * 指定されたメールアドレスで登録している管理者が存在するかを確認します
+	 * @param administrator
+	 * @return true/false
+	 */
+	public boolean administratorIsExist(Administrator administrator){
+		if(administratorRepository.findByMailAddress(administrator.getMailAddress())!=null){
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
 	 * ログインをします.
 	 * 
 	 * @param mailAddress メールアドレス
