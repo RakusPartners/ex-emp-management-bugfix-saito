@@ -2,7 +2,6 @@ package com.example.controller;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -30,6 +29,7 @@ import jakarta.servlet.http.HttpSession;
 @RequestMapping("/")
 public class AdministratorController {
 
+	
 	@Autowired
 	private AdministratorService administratorService;
 
@@ -43,6 +43,7 @@ public class AdministratorController {
 	 */
 	@ModelAttribute
 	public InsertAdministratorForm setUpInsertAdministratorForm() {
+		
 		return new InsertAdministratorForm();
 	}
 
@@ -66,6 +67,7 @@ public class AdministratorController {
 	 */
 	@GetMapping("/toInsert")
 	public String toInsert(Model model) {
+		
 		return "administrator/insert";
 	}
 
@@ -119,7 +121,7 @@ public class AdministratorController {
 	 * @param form 管理者情報用フォーム
 	 * @return ログイン後の従業員一覧画面
 	 */
-	@PostMapping("/login")
+	// @PostMapping("/login")
 	public String login(LoginForm form, RedirectAttributes redirectAttributes) {
 		Administrator administrator = administratorService.login(form.getMailAddress(), form.getPassword());
 		if (administrator == null) {
